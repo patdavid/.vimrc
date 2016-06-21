@@ -42,6 +42,7 @@ Plug 'godlygeek/tabular'
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 
 "Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-surround'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
