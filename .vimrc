@@ -11,7 +11,17 @@ set shiftwidth=4
 set expandtab
 inoremap <S-Tab> <C-D>
 set showmatch
-set guifont=Source\ Code\ Pro:h9
+
+set guifont=Source\ Code\ Pro\ 10
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Source\ Code\ Pro\ 10
+  elseif has("gui_macvim")
+    set guifont=Source\ Code\ Pro:h14
+  elseif has("gui_win32")
+    set guifont=Source\ Code\ Pro:h9
+  endif
+endif
 
 "To auto save & load folds
 au BufWinLeave * silent! mkview
@@ -100,6 +110,15 @@ function! s:goyo_enter()
     " set linespace=3
     set linespace=5
     set guifont=Cousine:h14
+    if has("gui_running")
+      if has("gui_gtk2")
+        set guifont=Cousine\ 14
+      elseif has("gui_macvim")
+        set guifont=Cousine:h14
+      elseif has("gui_win32")
+        set guifont=Cousine:h9
+      endif
+    endif
     set guioptions-=r
     colorscheme pencil
     let g:vim_markdown_frontmatter = 1
@@ -117,6 +136,16 @@ endfunction
 function! s:goyo_leave()
     set linespace=0
     set guifont=Source\ Code\ Pro:h12
+    set guifont=Source\ Code\ Pro\ 10
+    if has("gui_running")
+      if has("gui_gtk2")
+        set guifont=Source\ Code\ Pro\ 10
+      elseif has("gui_macvim")
+        set guifont=Source\ Code\ Pro:h14
+      elseif has("gui_win32")
+        set guifont=Source\ Code\ Pro:h9
+      endif
+    endif
     colorscheme torte
     Limelight!
 endfunction
