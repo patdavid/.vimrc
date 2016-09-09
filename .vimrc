@@ -16,17 +16,19 @@ set guifont=Source\ Code\ Pro\ 10
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Source\ Code\ Pro\ 10
+    set directory=$HOME/vswaps//
   elseif has("gui_macvim")
     set guifont=Source\ Code\ Pro:h14
+    set directory=$HOME/vswaps//
   elseif has("gui_win32")
     set guifont=Source\ Code\ Pro:h9
+    set directory=$HOME\vswaps//
   endif
 endif
 
 "To auto save & load folds
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
-set directory=$HOME\vswaps//
 
 iab <expr> dts strftime("%FT%T%z")
 iab <expr> dte strftime("%Y-%m-%dT%H:%M:%S-06:00")
@@ -76,7 +78,7 @@ Plug 'ruedigerha/vim-fullscreen'
 Plug 'nelstrom/vim-markdown-folding'
 
 " Loading html-autoclosetag from my repo:
-Plug 'https://gitlab.com/patdavid/vim-html-autoclosetag.git'
+" Plug 'https://gitlab.com/patdavid/vim-html-autoclosetag.git'
 
 " Testing CSApprox for GVim colors in a terminal (tmux)
 Plug 'https://github.com/godlygeek/csapprox.git'
@@ -106,7 +108,9 @@ call plug#end()
 " `Limelight!! [0.0 ~ 1.0] - toggle Limelight
 
 function! s:goyo_enter()
-    SoftPencil
+    echom "Entering Goyo"
+    " SoftPencil
+    PencilSoft
     " set linespace=3
     set linespace=5
     set guifont=Cousine:h14
@@ -119,6 +123,7 @@ function! s:goyo_enter()
         set guifont=Cousine:h9
       endif
     endif
+
     set guioptions-=r
     colorscheme pencil
     let g:vim_markdown_frontmatter = 1
