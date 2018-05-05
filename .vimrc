@@ -4,6 +4,9 @@ syntax enable
 syntax on
 filetype plugin indent on
 colorscheme torte
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 set hlsearch
 set backspace=indent,eol,start
 set tabstop=4
@@ -12,11 +15,18 @@ set expandtab
 inoremap <S-Tab> <C-D>
 set showmatch
 
-set guifont=Source\ Code\ Pro\ 10
+"set guifont=Source\ Code\ Pro\ 10
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Source\ Code\ Pro\ 10
     set directory=$HOME/vswaps//
+  elseif has("gui_gtk3")
+    set guifont=Hack\ 10
+    set directory=$HOME/vswaps//
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
   elseif has("gui_macvim")
     set guifont=Source\ Code\ Pro:h14
     set directory=$HOME/vswaps//
